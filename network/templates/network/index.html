@@ -1,0 +1,63 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="new-post-view">
+    {% if user.is_authenticated %}
+    <div class="card-body">
+        <h5 class="card-title">New Post</h5>
+        <form id="post-form">
+            <div class="form-group">
+                <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="image-url">
+                <label for="imageurl">Image url</label>
+                <input type="url" class="form-control" id="imageurlInput" name="imageurl" placeholder="">
+                <small id="imageurl" class="form-text text-muted">Enter a url for your image if any</small>
+            </div>
+            <button class="btn btn-primary" id="save-post">Post</button>
+        </form>
+    </div>
+    
+    {% endif %}
+</div>
+
+<div id="edit-post-view">
+    <div class="card-body">
+        <h5 class="card-title">Edit Post</h5>
+        <form id="post-form">
+            <div class="form-group">
+                <textarea class="form-control" id="FormControlTextarea-edit" rows="3"></textarea>
+            </div>
+            <div class="image-url">
+                <label for="imageurl">Image url</label>
+                <input type="url" class="form-control" id="imageurlInput-edit" name="imageurl" placeholder="">
+                <small id="imageurl" class="form-text text-muted">Enter a url for your image if any</small>
+            </div>
+            <button class="btn btn-primary" id="edit-post">Save Edit</button>
+        </form>
+    </div>
+</div>
+
+
+<div id="view-page">
+    
+</div>
+
+<div id="pagination-01">
+    <div id="pagination-buttons" class="d-flex justify-content-center mb-3">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item" id="previous-page"><a class="page-link previous" href="#">Previous</a></li>
+                <li class="page-item" id="next-page"><a class="page-link next" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'network/index.js' %}"></script>
+{% endblock %}
